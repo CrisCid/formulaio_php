@@ -1,0 +1,28 @@
+CREATE TABLE regiones(
+	id_regiones int PRIMARY KEY AUTO_INCREMENT,
+    nombre_regiones VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE comunas(
+    id_comunas INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_comunas VARCHAR(50) NOT NULL,
+    region_id INT NOT NULL,
+    FOREIGN KEY (region_id) REFERENCES regiones(id)
+);
+
+CREATE TABLE formulario_voto (
+    id_formulario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_votante VARCHAR(255) NOT NULL,
+    alias VARCHAR(255) NOT NULL,
+    rut INT NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    region_id INT NOT NULL,
+    comuna_id INT NOT NULL,
+    candidato VARCHAR(255) NOT NULL,
+    como_se_entero VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE candidatos (
+    id_candidatos INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_candidato VARCHAR(255) NOT NULL
+);

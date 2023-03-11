@@ -1,0 +1,16 @@
+INSERT INTO  regiones (nombre_regiones) VALUES ('Arica y Parinacota');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Tarapacá');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Antofagasta');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Atacama');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Coquimbo');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Valparaíso');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Metropolitana de Santiago');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Libertador General Bernardo OHiggins');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Maule');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Ñuble');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Biobío');
+INSERT INTO  regiones (nombre_regiones) VALUES ('La Araucanía');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Los Ríos');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Los Lagos');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Aysén del General Carlos Ibáñez del Campo');
+INSERT INTO  regiones (nombre_regiones) VALUES ('Magallanes y de la Antártica Chilena');

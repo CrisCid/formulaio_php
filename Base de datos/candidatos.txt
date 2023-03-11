@@ -1,0 +1,10 @@
+INSERT INTO candidatos (nombre_candidato) VALUES ('Juan Perez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Maria Rodriguez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Pedro Gonzalez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Carla Martinez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Luisa Gomez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Miguel Hernandez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Sofia Fernandez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Roberto Ramirez');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Ana Castro');
+INSERT INTO candidatos (nombre_candidato) VALUES ('Diego Sanchez');

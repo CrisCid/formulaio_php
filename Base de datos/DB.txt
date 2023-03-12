@@ -7,7 +7,7 @@ CREATE TABLE comunas(
     id_comunas INT PRIMARY KEY AUTO_INCREMENT,
     nombre_comunas VARCHAR(50) NOT NULL,
     region_id INT NOT NULL,
-    FOREIGN KEY (region_id) REFERENCES regiones(id)
+    FOREIGN KEY (region_id) REFERENCES regiones(id_regiones)
 );
 
 CREATE TABLE formulario_voto (

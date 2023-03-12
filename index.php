@@ -6,8 +6,6 @@ $mysqli = new mysqli("localhost", "root", "", "formulario");
 
 $query = "SELECT id_regiones, nombre_regiones FROM regiones ORDER BY nombre_regiones";
 $resultado = $mysqli->query($query);
-
-
 ?>
 <html lang="en">
 
@@ -46,75 +44,83 @@ $resultado = $mysqli->query($query);
 
 <body>
     <?php
-
     include("conexion.php")
-
         ?>
-    <?php
-    function limpiarFormulario()
-    {
-        // Código para limpiar los campos del formulario
-        $_POST['nombreyapellido'] = '';
-        $_POST['alias'] = '';
-        $_POST['rut'] = '';
-        $_POST['email'] = '';
-        // También puedes limpiar cualquier otro valor de sesión que hayas establecido
-        unset($_SESSION['mensaje']);
-    }
-    ?>
-    <div>
-        <h1>Formulario</h1>
+    <div id="div_formulario" style="margin-top: 25px;">
+        <h1>Formulario Votación</h1>
         <form method="POST" action="procesar_voto.php" id="fomulario_votacion">
             <!-- Campo para el nombre y apellido -->
             <label>Nombre y apellido:</label>
             <input type="text" name="nombreyapellido" placeholder="Nombre y Apellido">
+            <!--  -->
+            <br>
             <br>
             <!-- Campo para el Alias -->
             <label>Alias:</label>
             <input type="text" name="alias" placeholder="Alias">
             <br>
+            <!--  -->
+            <br>
             <label>RUT:</label>
             <input type="number" name="rut" placeholder="Rut">
             <br>
-
+            <!--  -->
+            <br>
             <label>Email:</label>
             <input type="email" name="email" placeholder="ejemplo@ejemplo.com">
-
-            <div>Selecciona Region : <select name="regiones" id="regiones">
+            <br>
+            <!--  -->
+            <br>
+            <div
+                style="border:none;font-size:20px;font-family: Arial, Helvetica, sans-serif;display:flex; width: 100%;margin-right: 10px;">
+                <label>Selecciona Region :</label>
+                <select name="regiones" id="regiones" class="regiones" style="flex: 2;margin-left: auto;">
                     <option value="0">Seleccionar Region</option>
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
                         <option value="<?php echo $row['id_regiones']; ?>"><?php echo $row['nombre_regiones']; ?></option>
                     <?php } ?>
-                </select></div>
-
+                </select>
+            </div>
             <br />
-
-            <div>Selecciona Comuna : <select name="comunas" id="comunas"></select></div>
-
+            <!--  -->
+            <div
+                style="border:none;font-size:20px;font-family: Arial, Helvetica, sans-serif;display:flex; width: 100%;margin-right: 10px;">
+                <label>Selecciona Comuna :</label>
+                <select name="comunas" id="comunas" style="flex: 2;margin-left: auto;"></select>
+            </div>
             <br />
+            <!--  -->
 
-            <label>Candidato:</label>
-            <select name="candidato">
-                <option value="">Seleccione un candidato</option>
-                <?php
-                $consulta = "SELECT id_candidatos, nombre_candidato from candidatos;";
-                $resultado = mysqli_query($connex, $consulta);
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    echo "<option value=\"{$fila['id_candidatos']}\">{$fila['nombre_candidato']}</option>";
-                }
-                ?>
-            </select>
+            <div
+                style="border:none;font-size:20px;font-family: Arial, Helvetica, sans-serif;display:flex; width: 100%;margin-right: 10px;">
+                <label>Candidato:</label>
+                <select name="candidato" style="flex: 2;margin-left: auto;">
+                    <option value="">Seleccione un candidato</option>
+                    <?php
+                    $consulta = "SELECT id_candidatos, nombre_candidato from candidatos;";
+                    $resultado = mysqli_query($connex, $consulta);
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+
+                        echo "<option value=\"{$fila['id_candidatos']}\">{$fila['nombre_candidato']}</option>";
+                    }
+                    ?>
+                </select>
+            </div>
             <br>
-
+            <!--  -->
             <fieldset>
                 <legend>¿Cómo se enteró de nosotros?</legend>
-                <input type="checkbox" name="opciones[]" value="Web">Web<br>
-                <input type="checkbox" name="opciones[]" value="TV">TV<br>
-                <input type="checkbox" name="opciones[]" value="Redes Sociales">Redes Sociales<br>
-                <input type="checkbox" name="opciones[]" value="Amigo">Amigo<br>
+                <input type="checkbox" name="opciones[]" value="Web">Web
+                <input type="checkbox" name="opciones[]" value="TV">TV
+                <input type="checkbox" name="opciones[]" value="Redes Sociales">Redes Sociales
+                <input type="checkbox" name="opciones[]" value="Amigo">Amigo
             </fieldset>
+            <br>
+            <br>
+     
+                <button type="submit" name="enviar"> Enviar</button>
 
-            <button type="submit" name="enviar" onclick=limpiarFormulario()> Enviar</button>
+
         </form>
 
         <?php

@@ -1,5 +1,9 @@
-Base de datos mysql utilizando Xampp ultima versión que seria 8.2.0 la cual viene con PHP 8.2
-Buscar donde se instalo Xampp, debería instalarse en C:\xampp\
-En esa ruta buscar la carpeta htdocs, clonar directamente el proyecto en dicha carpeta o descargar como zip
-Abrir Xampp, iniciar Apache y MySQL, abrir http://localhost/phpmyadmin/ en el navegador para crear la base de datos, en la carpeta "Base de datos" esta todo lo necesario para que pueda funcionar el formulario.
-para abrir el proyecto en el navegador utilizar la siguiente ruta http://localhost/formulario_php/index.php o solamente http://localhost/formulario_php/
+>Base de datos mysql utilizando Xampp ultima versión que seria 8.2.0 la cual viene con PHP 8.2
+
+>Buscar donde se instalo Xampp, debería instalarse en C:\xampp\
+
+>En esa ruta buscar la carpeta htdocs, clonar directamente el proyecto en dicha carpeta o descargar como zip
+
+>Abrir Xampp, iniciar Apache y MySQL, abrir http://localhost/phpmyadmin/ en el navegador para crear la base de datos, en la carpeta "Base de datos" esta todo lo necesario para que pueda funcionar el formulario.
+
+>para abrir el proyecto en el navegador utilizar la siguiente ruta http://localhost/formulario_php/index.php o solamente http://localhost/formulario_php/

@@ -14,7 +14,7 @@ CREATE TABLE formulario_voto (
     id_formulario INT AUTO_INCREMENT PRIMARY KEY,
     nombre_votante VARCHAR(255) NOT NULL,
     alias VARCHAR(255) NOT NULL,
-    rut INT NOT NULL,
+    rut varchar(12) NOT NULL,
     email VARCHAR(255) NOT NULL,
     region_id INT NOT NULL,
     comuna_id INT NOT NULL,

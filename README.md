@@ -2,9 +2,7 @@ Para iniciar el proyecto:
 
 >Descargar Visual Studio Code
 
->Utilice la ultima version de php.
-
->Descargar Xampp.
+>Base de datos mysql utilizando Xampp ultima version que seria 8.2.0 la cual viene con PHP 8.2
 
 >Una vez descargado, ir a la carpeta donde se instalo Xampp y buscar la carpeta htdocs, en dicha carpeta clonar el repositorio.
 

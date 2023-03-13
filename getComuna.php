@@ -1,6 +1,6 @@
 <?php
 	require('conexion.php');
-	// establezco la conexion para que funcione $mysqli
+	// establezco la conexión para que funcione $mysqli
 	$mysqli = new mysqli("localhost", "root", "", "formulario");
 	
 	$id_regiones = $_POST['id_regiones'];

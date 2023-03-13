@@ -1,11 +1,11 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: #BEDDFF;
+    background-color: #2E4053 ;
 }
 
 form {
-    background-color: #E5E7E9 ;
+    background-color: #AEB6BF;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 50px;
@@ -14,14 +14,6 @@ form {
 
 }
 
-div {
-    background-color: #E5E7E9;
-    width: 50%;
-    border: black solid;
-    border-radius: 10px;
- 
-}
- 
 
 h1 {
     text-align: center;
@@ -41,8 +33,8 @@ input {
     border-radius: 10px;
 }
 
-label {
-    font-size:20px;
+h4{
+    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -70,35 +62,94 @@ select {
 
 fieldset {
     font-size: 16px;
-  display: inline-block;
-  width: 100%;
-  margin-right: 10px;
-  max-width: 100%;
+    display: inline-block;
+    width: 100%;
+    margin-right: 10px;
+    max-width: 100%;
 }
-fieldset label, fieldset input[type="checkbox"] {
+
+fieldset label,
+fieldset input[type="checkbox"] {
     display: inline-block;
     width: auto;
     margin-right: 10px;
-    
+
 }
+
 fieldset label input[type="checkbox"] {
     display: inline-block;
     margin-right: 10px;
 }
-button{
-    padding: .375rem .75rem;
+
+button {
     border-radius: .25rem;
-    background-color: #007bff;
-    color: #fff;
-    transition: background-color .15s ease-in-out;
-    font-size: 20px;
     max-width: 100%;
     width: 100%;
-    text-align: center;
 }
-button:hover{
+
+button:hover {
     box-shadow: 1px 1px 1px 1px black;
 }
-div div .cand{
-    border: none;
+
+.textos {
+
+    width: 150px;
+}
+
+.div_combobox {
+
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.desplegable {
+    flex: 2 !important;
+    margin-left: auto !important;
+}
+
+.div_formulario {
+    margin-top: 25px;
+    background-color: #AEB6BF;
+    width: 50%;
+    border: red  solid;
+    border-radius: 10px;
+    max-height: 100%;
+    height: 50%;
+}
+.texto_pequeno{
+    font-size:12px; 
+    color:#5D6D7E;
+}
+
+.bordes{
+    border: #154360 solid;
+    width: 25%;
+    border-radius: 12px;
+    margin-top: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #85929E ;
+}
+.candidatos{
+    color:black ;
+    margin-top: 20%;
+    text-align: center;
+    
+}
+.espacios_bottom{
+    margin-bottom: 10px;
+}
+.progress{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+h3{
+    margin-top: 10px;
+    text-align: center;
+}
+.hidden{
+    display:none;
 }

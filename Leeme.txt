@@ -1,9 +1,18 @@
-Base de datos mysql utilizando Xampp ultima version que seria 8.2.0 la cual viene con PHP 8.2
-PHP v8.2.0
-Buscar donde se instalo Xampp
-en mi caso se instalo en C:\xampp\
-en esa ruta buscar la carpeta htdocs y crear una carpeta o clonar directamente el proyecto en dicha carpeta
-abrir Xampp, iniciar Apache y MySQL, abrir http://localhost/phpmyadmin/ en el navegador para crear la base de datos, en la carpeta "Base de datos" 
-esta todo lo necesario para que pueda funcionar el formulario.
-para abrir el proyecto en el navegador utilizar la siguiente ruta http://localhost/"carpeta creada"/index.php
-Fin.
+Para iniciar el proyecto:
+
+>Descargar Visual Studio Code
+
+>Base de datos mysql utilizando Xampp ultima version que seria 8.2.0 la cual viene con PHP 8.2
+
+>Una vez descargado, ir a la carpeta donde se instalo Xampp y buscar la carpeta htdocs, en dicha carpeta clonar el repositorio.
+
+>Abrir Xampp, iniciar Apache y Mysql, ir a la siguiente url en el navegador localhost/phpadmin, Crear una nueva base de datos llamada formulario.
+
+>Seleccionar la base de datos formulario, luego seleccionar en la parte superior donde dice SQL y crear las tablas que estan en la carpeta "Base de datos" del proyecto.
+
+>Luego de crear las tablas, insertar los datos de comunas, regiones y candidatos.
+
+>Con eso estaria listo para funcionar, ahora se debera ir al archivo index.php del proyecto, mediante la url en el navegador, 
+en mi caso fue esta ruta  localhost/ejercicios/formulario
+
+>Una vez en esa pagina se puede ingresar los datos correspondientes

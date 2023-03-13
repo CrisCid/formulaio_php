@@ -19,8 +19,7 @@ $resultado = $mysqli->query($query);
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
         </script>
-
-    <!-- Script para que cada vez que se seleccione una region diferente, 
+    <!-- Script para que cada vez que se seleccione una region diferente,
     se muestren las comunas de la region seleccionada -->
     <script language="javascript">
         $(document).ready(function () {
@@ -46,6 +45,7 @@ $resultado = $mysqli->query($query);
 
 </head>
 
+
 <body>
     <?php
     include("conexion.php")
@@ -68,15 +68,16 @@ $resultado = $mysqli->query($query);
             <!-- Campo para el Rut -->
             <label>RUT:</label>
             <input type="input" name="rut" placeholder="Rut"
-                onkeydown="return /[0-9.\-]/.test(event.key) || event.keyCode === 8"
-                onkeyup="autorellenarRut(this)"  maxlength="12">
-                <label style="font-size:15px; color:#5D6D7E">Si su rut termina en k, poner 0</label>
+                onkeydown="return /[0-9.\-]/.test(event.key) || event.keyCode === 8" onkeyup="autorellenarRut(this)"
+                maxlength="12">
+            <label style="font-size:15px; color:#5D6D7E">Si su rut termina en k, poner 0</label>
             <br>
             <!--  -->
             <br>
             <!-- Campo para el Email -->
             <label>Email:</label>
-            <input type="email" name="email" placeholder="ejemplo@ejemplo.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            <input type="email" name="email" placeholder="ejemplo@ejemplo.com"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
             <br>
             <!--  -->
             <br>
@@ -116,6 +117,7 @@ $resultado = $mysqli->query($query);
                     $resultado = mysqli_query($connex, $consulta);
                     while ($fila = mysqli_fetch_assoc($resultado)) {
 
+
                         echo "<option value=\"{$fila['id_candidatos']}\">{$fila['nombre_candidato']}</option>";
                     }
                     ?>
@@ -133,20 +135,19 @@ $resultado = $mysqli->query($query);
             </fieldset>
             <br>
             <br>
-
             <button type="submit" name="enviar"> Enviar</button>
-
-
         </form>
-        
+
         <!-- Script para se autorellene el input de rut con puntos y guiones -->
         <script>
             function autorellenarRut(campo) {
                 var rut = campo.value;
 
+
                 // Quitamos puntos y guiones del valor ingresado
                 rut = rut.replace(/\./g, '');
                 rut = rut.replace(/\-/g, '');
+
 
                 // Agregamos puntos y guiones según corresponda
                 if (rut.length > 1) {
@@ -156,6 +157,7 @@ $resultado = $mysqli->query($query);
                     rut = cuerpo + "-" + dv;
                 }
 
+
                 campo.value = rut;
             }
         </script>
@@ -163,7 +165,9 @@ $resultado = $mysqli->query($query);
         include("procesar_voto.php");
         ?>
 
+
     </div>
 </body>
+
 
 </html>

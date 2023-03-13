@@ -1,4 +1,4 @@
-Base de datos mysql utilizando Xampp v3.3.0.
+Base de datos mysql utilizando Xampp ultima version que seria 8.2.0 la cual viene con PHP 8.2
 PHP v8.2.0
 Buscar donde se instalo Xampp
 en mi caso se instalo en C:\xampp\

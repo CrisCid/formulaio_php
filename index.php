@@ -47,16 +47,19 @@ $resultado = $mysqli->query($query);
         unset($_SESSION['mensaje']);
     }
     ?>
-
+    <script>
+        window.addEventListener('beforeunload',function(){
+            sessionStorage.clear();
+        });
+        
+    </script>
 </head>
 
 
 <body>
-    <?php
-    include("conexion.php")
-    ?>
+
     <!-- Div con 5 candidatos para que se muestre cuanto % de votos ha recibido -->
-    <div id="izquierda" class="izquierda bordes hidden">
+    <div id="izquierda" class="bordes izquierda">
         <h3>Cantidad de votos</h3>
         <div class="candidatos">
             <h4>Juan Perez</h4>
@@ -134,29 +137,29 @@ $resultado = $mysqli->query($query);
             </div>
         </div>
     </div>
-    
+
     <!-- Formulario de Votacion -->
     <div class="div_formulario">
         <h1>Formulario Votación</h1>
         <form method="POST" action="procesar_voto.php" id="fomulario_votacion" class="fomulario_votacion">
             <!-- Campo para el nombre y apellido -->
             <h4>Nombre y apellido:</h4>
-            <input class="espacios_bottom" type="text" name="nombreyapellido" placeholder="Nombre y Apellido">
+            <input class="espacios_bottom" type="text" name="nombreyapellido" placeholder="Nombre y Apellido" id="nombreyapellido">
             <!--  -->
             <!-- Campo para el Alias -->
             <h4>Alias:</h4>
-            <input class="espacios_bottom" type="text" name="alias" placeholder="Alias">
+            <input class="espacios_bottom" type="text" name="alias" placeholder="Alias" id="alias">
             <!--  -->
             <!-- Campo para el Rut -->
             <h4>RUT:</h4>
-            <input type="input" name="rut" placeholder="Rut"
+            <input class="espacios_bottom" type="input" name="rut" placeholder="Rut" id="rut"
                 onkeydown="return /[0-9.\-]/.test(event.key) || event.keyCode === 8" onkeyup="autorellenarRut(this)"
                 maxlength="12">
             <h6 class="texto_pequeno espacios_bottom alert alert-primary">Si su rut termina en k, poner 0</h6>
             <!--  -->
             <!-- Campo para el Email -->
             <h4>Email:</h4>
-            <input class="espacios_bottom" type="email" name="email" placeholder="ejemplo@ejemplo.com"
+            <input class="espacios_bottom" type="email" name="email" placeholder="ejemplo@ejemplo.com" id="email"
                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
             <!--  -->
             <!-- Campo para la region -->
@@ -164,10 +167,12 @@ $resultado = $mysqli->query($query);
                 <div class="textos">
                     <h4>Region :</h4>
                 </div>
-                <select name="regiones" id="regiones" class="desplegable">
+                <select name="regiones" id="regiones" class="desplegable" id="region">
                     <option value="0">Seleccionar Region</option>
                     <?php while ($row = $resultado->fetch_assoc()) { ?>
-                        <option value="<?php echo $row['id_regiones']; ?>"><?php echo $row['nombre_regiones']; ?></option>
+                        <option value="<?php echo $row['id_regiones']; ?>">
+                            <?php echo $row['nombre_regiones']; ?>
+                        </option>
                     <?php } ?>
                 </select>
             </div>
@@ -178,7 +183,7 @@ $resultado = $mysqli->query($query);
                 <div class="textos">
                     <h4>Comuna :</h4>
                 </div>
-                <select name="comunas" id="comunas" class="desplegable"></select>
+                <select name="comunas" id="comunas" class="desplegable" id="comuna"></select>
             </div>
 
             <!--  -->
@@ -186,15 +191,13 @@ $resultado = $mysqli->query($query);
                 <div class="textos">
                     <h4>Candidato:</h4>
                 </div>
-                <select name="candidato" class="desplegable">
+                <select name="candidato" class="desplegable" id="candidato">
                     <option value="">Seleccione un candidato</option>
                     <?php
                     // Se hace la consulta a la base de datos para obtener a los candidatos e insertarlos en la lista desplegable
                     $consulta = "SELECT id_candidatos, nombre_candidato from candidatos;";
                     $resultado = mysqli_query($connex, $consulta);
                     while ($fila = mysqli_fetch_assoc($resultado)) {
-
-
                         echo "<option value=\"{$fila['id_candidatos']}\">{$fila['nombre_candidato']}</option>";
                     }
                     ?>
@@ -205,10 +208,10 @@ $resultado = $mysqli->query($query);
             <!-- Campo para los checkbox -->
             <fieldset>
                 <legend>¿Cómo se enteró de nosotros?</legend>
-                <input type="checkbox" name="opciones[]" value="Web">Web
-                <input type="checkbox" name="opciones[]" value="TV">TV
-                <input type="checkbox" name="opciones[]" value="Redes Sociales">Redes Sociales
-                <input type="checkbox" name="opciones[]" value="Amigo">Amigo
+                <input class="checa" type="checkbox" name="opciones[]" value="Web" id="opciones">Web
+                <input class="checa" type="checkbox" name="opciones[]" value="TV" id="opciones">TV
+                <input class="checa" type="checkbox" name="opciones[]" value="Redes Sociales" id="opciones">Redes Sociales
+                <input class="checa" type="checkbox" name="opciones[]" value="Amigo" id="opciones">Amigo
             </fieldset>
             <br>
             <br>
@@ -238,7 +241,7 @@ $resultado = $mysqli->query($query);
 
     </div>
     <!-- Div con 5 candidatos para que se muestre cuanto % de votos ha recibido -->
-    <div id="derecha" class="derecha bordes hidden">
+    <div id="derecha" class="bordes derecha ">
         <h3>Cantidad de votos</h3>
         <div class="candidatos">
             <h4>Miguel Hernandez</h4>
@@ -315,16 +318,42 @@ $resultado = $mysqli->query($query);
                 ?>
             </div>
         </div>
-    
+
     </div>
-    
-    <script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+
+    <script>
+            window.onload = function() {
+            var nombreyapellidoValue = sessionStorage.getItem('nombreyapellidoValue');
+            var aliasValue = sessionStorage.getItem('aliasValue');
+            var rutValue = sessionStorage.getItem('rutValue');
+            var emailValue = sessionStorage.getItem('emailValue');
+            var regionesValue = sessionStorage.getItem('regionesValue');
+            var comunasValue = sessionStorage.getItem('comunasValue');
+            var candidatoValue = sessionStorage.getItem('candidatoValue');
+            var opcionesValue = sessionStorage.getItem('opcionesValue');
+            if (nombreyapellidoValue && aliasValue && rutValue && emailValue && regionesValue && comunasValue && candidatoValue && opcionesValue) {
+                // Si hay un valor en sessionStorage, llenar automáticamente el campo del alias
+                document.getElementById('nombreyapellido').value = nombreyapellidoValue;
+                document.getElementById('alias').value = aliasValue;
+                document.getElementById('rut').value = rutValue;
+                document.getElementById('email').value = emailValue;
+                document.getElementById('regiones').value = regionesValue;
+                document.getElementById('comunas').value = comunasValue;
+                document.getElementById('candidato').value = candidatoValue;
+                document.getElementById('opciones').value = opcionesValue;
+            }
+            
+            };
+    </script>
 </body>
 
 

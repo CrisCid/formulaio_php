@@ -28,7 +28,7 @@ if (isset($_POST['enviar'])) {
 
                         // Verifica que se seleccionen mínimo 2 opciones
                         if (isset($_POST['opciones'])) {
-                            
+
                             $numSeleccionados = count($_POST['opciones']);
                             if ($numSeleccionados >= 2) {
                                 // Si se presiono, verificar que los siguientes campos tenga la cantidad de caracteres mínimos o iguales mediante la función strlen
@@ -50,7 +50,12 @@ if (isset($_POST['enviar'])) {
                                 if ($resultado) {
                                     session_start();
                                     $_SESSION['mensaje'] = 'Tu voto ha sido procesado';
-                                    header('Location: index.php');
+                                    echo "<script>
+                                    sessionStorage.clear();
+                                    window.location.href = 'index.php';
+                                  </script>";
+                                    /* header('Location: index.php'); */
+
                                     exit();
                                 } else {
                                     // Si no ha sido procesado el voto enviara el siguiente mensaje
@@ -59,27 +64,94 @@ if (isset($_POST['enviar'])) {
                                     <?php
                                 }
                             } else {
-                                echo "Debes seleccionar al menos dos opciones";
+                                echo "<script>alert('Debes seleccionar al menos dos opciones')
+                                sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+                                sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+                                sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+                                sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+                                sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+                                sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+                                sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+                                sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+                                window.location.href = 'index.php';
+                                </script>";
                                 error_log("Campos incompletos");
+
                             }
 
                         } else {
-                            echo "Debes seleccionar al menos una opción";
+                            echo "<script>alert('Debes seleccionar al menos una opción')
+                                sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+                                sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+                                sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+                                sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+                                sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+                                sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+                                sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+                                sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+                                window.location.href = 'index.php';
+                                </script>";
+
                         }
 
                     } else {
-                        echo "<script>alert('El Email debe tener un minimo de 10 caracteres y formato email');</script>";
+                        echo "<script>alert('El Email debe tener un minimo de 10 caracteres y formato email');
+                            sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+                            sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+                            sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+                            sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+                            sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+                            sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+                            sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+                            sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+                            window.location.href = 'index.php';
+                            </script>";
+
                     }
                 }
 
             } else {
-                echo "<script>alert('El Rut debe tener un minimo de 8 numeros');</script>";
+                echo "<script>alert('El Rut debe tener un minimo de 8 numeros');
+                    sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+                    sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+                    sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+                    sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+                    sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+                    sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+                    sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+                    sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+                    window.location.href = 'index.php';
+                    </script>";
+
             }
         } else {
-            echo "<script>alert('El Alias debe tener un minimo de 5 caracteres');</script>";
+            echo "<script>alert('El Alias debe tener un minimo de 5 caracteres');
+                sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+                sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+                sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+                sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+                sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+                sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+                sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+                sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+                window.location.href = 'index.php';
+                </script>";
+
         }
     } else {
-        echo "<script>alert('El Alias debe tener un minimo de 5 caracteres');</script>";
+        echo "<script>alert('El nombre es muy corto debe tener mas de 10 caracteres');
+            sessionStorage.setItem('nombreyapellidoValue', '" . $_POST['nombreyapellido'] . "');
+            sessionStorage.setItem('aliasValue', '" . $_POST['alias'] . "');
+            sessionStorage.setItem('rutValue', '" . $_POST['rut'] . "');
+            sessionStorage.setItem('emailValue', '" . $_POST['email'] . "');
+            sessionStorage.setItem('regionesValue', '" . $_POST['regiones'] . "');
+            sessionStorage.setItem('comunasValue', '" . $_POST['comunas'] . "');
+            sessionStorage.setItem('candidatoValue', '" . $_POST['candidato'] . "');
+            sessionStorage.setItem('opcionesValue', '" . $_POST['opciones'] . "');
+            window.location.href = 'index.php';
+            </script>";
+
+
     }
 }
 ?>

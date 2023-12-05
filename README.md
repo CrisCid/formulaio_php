@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://imgur.com/AMuAzY3"><img src="https://i.imgur.com/AMuAzY3l.png" title="source: imgur.com" /></a>
+  </p>
+
+<br>
 Para iniciar el proyecto:
 
 >Descargar Visual Studio Code
@@ -15,3 +20,4 @@ Para iniciar el proyecto:
 >Para abrir el proyecto en el navegador utilizar la siguiente ruta http://localhost/formulario_php/index.php o solamente http://localhost/formulario_php/
 
 >Una vez en esa pagina se puede ingresar los datos correspondientes y votar
+  

@@ -1,5 +1,5 @@
 <?php
-	require('conexion.php');
+	require('connection/conexion.php');
 	// establezco la conexión para que funcione $mysqli
 	$mysqli = new mysqli("localhost", "root", "", "formulario");
 	

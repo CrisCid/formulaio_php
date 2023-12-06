@@ -1,6 +1,6 @@
 <?php
 // Incluyo el archivo de conexión
-include('conexion.php');
+include('connection/conexion.php');
 
 // Verificar si el botón enviar ha sido presionado
 if (isset($_POST['enviar'])) {

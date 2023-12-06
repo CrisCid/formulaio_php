@@ -1,0 +1,39 @@
+/* / Media query para dispositivos con un ancho de pantalla máximo de 767px (móviles) / */
+@media only screen and (max-width: 767px) {
+            
+
+    .conteiner > div:nth-child(2) {
+        order: -1; /* / Cambia el orden del segundo div en móviles */
+    }
+    .conteiner >div:nth-child(1){
+        margin-top: 50%;
+        max-width: 90%;
+    }
+    .conteiner >div:nth-child(2){
+        max-width: 90%;
+        
+    }
+    .conteiner >div:nth-child(3){
+        /* margin-top: 30%; */
+        max-width: 90%;
+        
+    }
+    .conteiner{
+        flex-wrap: wrap;
+    }
+   
+}
+.div_formulario{
+    border: #582bd6 solid;
+    background-color: #f3f3ff;
+}
+.bordes{
+    border: #582bd6 solid 5px;
+
+    background:linear-gradient(90deg,#9a8df8,#3c1e8f);
+    color:white;
+}
+.borderadio{
+    border-radius: 10px;
+}
+ 
